@@ -37,7 +37,9 @@ def grp(bits):
                 return x
 
 # extended euclidean algorithm
-# returns bezouts coefficients a and b
+# returns bezouts coefficients x and y
+# a and b are bezouts coefficients
+# pa and pb are the previous values of a and b
 # r is the remainder
 # q is the quotient
 def bezout(x, y, a = 0, b = 1, pa = -1, pb = 0):
