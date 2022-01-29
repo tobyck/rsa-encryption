@@ -4,7 +4,6 @@ import random, time
 # January 2022
 # Pure python implementation of RSA encryption
 
-
 # greatest common divisor (euclidean algorithm)
 def gcd(x, y):
     while x != y:
