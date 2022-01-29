@@ -14,6 +14,7 @@ def gcd(x, y):
     return x
 
 # primality test
+# -------------------------
 # n is the number to test
 # k in the number of rounds
 # s is the exponent
@@ -37,6 +38,7 @@ def grp(bits):
                 return x
 
 # extended euclidean algorithm
+# --------------------------------------------
 # returns bezouts coefficients x and y
 # a and b are bezouts coefficients
 # pa and pb are the previous values of a and b
@@ -54,7 +56,8 @@ def bezout(x, y, a = 0, b = 1, pa = -1, pb = 0):
         print(x, y, q, r, a, b, pa, pb)
         return bezout(y, r, a, b, pa, pb)
 
-
+# generate key pair
+# --------------------------------------------------
 # p and q = prime numbers (1024 bits is reccomended)
 # n = p * q
 # phi = (p - 1) * (q - 1)
@@ -72,10 +75,6 @@ def gkp(bits):
         d += phi
     
     key_data = {
-        "p": p,
-        "q": q,
-        "n": n,
-        "phi": phi,
         "public": e,
         "private": d,
         "modulus": n,
@@ -85,6 +84,7 @@ def gkp(bits):
     return key_data
 
 # interface
+# ----------------
 # m is the message
 # c is the cipher
 # c = m ^ e mod n
