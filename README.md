@@ -1,6 +1,6 @@
 ## RSA
 
-This is a pure python implementation of the RSA encryption algorithm. You can install the pip package with `pip install rsa_python`. Below is an example of how to use the module:
+This is a pure python implementation of the RSA encryption algorithm. You can install the pip package with ``py pip install rsa_python``. Below is an example of how to use the module:
 
 ```py
 from rsa_python import rsa
