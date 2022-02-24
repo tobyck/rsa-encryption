@@ -27,13 +27,12 @@ def generate_random_prime(bits):
             if rabin_miller(x, 40):
                 return x
 
-def egcd(a, b):
-    if a == 0:
-        return 0, 1
-    else:
-        y, x = egcd(b % a, a)
-        return x - (b // a) * y, y
-
+def egcd(a, b, x = 0, y = 1):
+    x, y = y, x - (b // a) * y
+    if b % a == 0:
+        return x, y
+    return egcd(b % a, a, x, y)
+    
 def generate_key_pair(bits):
     start = time.time()
     p, q = generate_random_prime(bits), generate_random_prime(bits)
@@ -67,3 +66,8 @@ def decrypt(c, d, n):
     for i in c.split("-"):
         m.append(chars[pow(int(i), d, n)])
     return "".join(m)
+
+key_pair = generate_key_pair(256)
+cipher = encrypt("Hello World!", key_pair["public"], key_pair["modulus"])
+decrypted_message = decrypt(cipher, key_pair["private"], key_pair["modulus"])
+print(decrypted_message)
